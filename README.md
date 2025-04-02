@@ -1,14 +1,56 @@
 # Real Estate AI System
 
-A robust real estate AI system that leverages multiple AI providers (OpenAI, Anthropic, Google) for intelligent property analysis and recommendations.
+An extensible real estate AI infrastructure that enables businesses to customize and integrate various data sources and AI agents for property analysis, market insights, and investment recommendations.
 
 ## Features
 
-- Multi-provider AI system with fallback support
-- Secure API key management using keyring
-- Standardized responses across different AI providers
-- Comprehensive error handling and logging
-- Environment variable management with .env support
+- Modular plugin system for data sources and ML models
+- Advanced property analysis and valuation
+- Investment recommendation engine
+- Market trend analysis
+- Real-time data integration
+- Configurable AI agents
+- Web-based plugin management
+
+## Core Components
+
+1. **Task Orchestrator**
+   - Async task management
+   - Priority-based scheduling
+   - Error handling and recovery
+
+2. **Service Manager**
+   - Service lifecycle management
+   - Dependency coordination
+   - Health monitoring
+
+3. **Agent Manager**
+   - AI agent coordination
+   - Task distribution
+   - Multi-agent collaboration
+
+4. **Plugin System**
+   - Data source plugins
+   - ML model plugins
+   - Processor plugins
+   - Hot-reloading support
+
+## Example Plugins
+
+1. **Zillow Data Source**
+   - Property listings
+   - Market trends
+   - Price history
+
+2. **Property Valuation Model**
+   - Price prediction
+   - Value analysis
+   - Risk assessment
+
+3. **Property Recommender**
+   - Investment recommendations
+   - Similar properties
+   - Market opportunities
 
 ## Setup
 
@@ -17,66 +59,114 @@ A robust real estate AI system that leverages multiple AI providers (OpenAI, Ant
 pip install -r requirements.txt
 ```
 
-2. Configure API keys:
+2. Configure plugins:
 ```bash
-python scripts/setup_env.py
+cp config/example.yaml config/local.yaml
+# Edit local.yaml with your settings
 ```
 
-3. Run the demo:
+3. Start the server:
 ```bash
-python examples/ai_provider_demo.py
+python src/main.py
 ```
 
 ## Project Structure
 
 ```
 src/
-├── ai/
-│   ├── agent.py           # Main AI agent implementation
-│   └── model_provider.py  # AI model providers and factory
-├── config/
-│   └── env_manager.py     # Environment and API key management
-└── mock/
-    └── data_generator.py  # Mock data generation for testing
+├── agents/
+│   ├── agent_manager.py     # AI agent coordination
+│   └── base_agent.py        # Base agent implementation
+├── api/
+│   └── plugin_manager_api.py # Plugin management API
+├── core/
+│   ├── config_manager.py    # Configuration management
+│   └── plugin_system.py     # Plugin system core
+├── frontend/
+│   └── templates/           # Web interface templates
+├── services/
+│   ├── service_manager.py   # Service lifecycle management
+│   └── data_integration.py  # Data integration service
+└── utils/
+    └── task_orchestrator.py # Task management
+
+plugins/
+├── zillow_data_source/     # Zillow integration plugin
+├── property_valuation/     # ML model plugin
+└── property_recommender/   # Recommendation plugin
+
+docs/
+├── architecture_overview.md # System architecture
+├── api_reference.md        # API documentation
+├── plugin_development.md   # Plugin development guide
+└── ml_model_guide.md      # ML model development
 
 tests/
-├── test_env.py           # Environment manager tests
-└── test_providers.py     # AI provider tests
-
-examples/
-└── ai_provider_demo.py   # Demo script
+└── unit/                  # Unit tests
 ```
 
-## Environment Variables
+## Documentation
 
-Required API keys (at least one):
-- `OPENAI_API_KEY`
-- `ANTHROPIC_API_KEY`
-- `GOOGLE_API_KEY`
+- [Architecture Overview](docs/architecture_overview.md)
+- [API Reference](docs/api_reference.md)
+- [Plugin Development Guide](docs/plugin_development.md)
+- [ML Model Guide](docs/ml_model_guide.md)
+
+## Plugin Development
+
+Create custom plugins to extend system capabilities:
+
+1. Data Source Plugins
+   - Integrate external data providers
+   - Implement data validation
+   - Handle rate limiting
+
+2. ML Model Plugins
+   - Custom prediction models
+   - Feature engineering
+   - Model evaluation
+
+3. Processor Plugins
+   - Data transformation
+   - Analysis pipelines
+   - Custom algorithms
+
+## Configuration
+
+Configure system behavior using YAML:
+
+```yaml
+plugins:
+  zillow_data_source:
+    enabled: true
+    rate_limit: 100
+  property_valuation:
+    model_type: advanced
+    feature_engineering:
+      use_market_features: true
+```
 
 ## Security
 
-API keys are stored securely using the keyring library, which integrates with your system's secure credential storage.
+- JWT authentication
+- Role-based access control
+- API key management
+- Request validation
 
 ## Testing
 
 Run tests:
 ```bash
-python -m unittest discover tests
+python -m pytest tests/
 ```
-
-## Error Handling
-
-The system includes comprehensive error handling:
-- Validates API key formats
-- Provides fallback mechanisms
-- Logs errors for debugging
-- Returns standardized error responses
 
 ## Contributing
 
 1. Fork the repository
 2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+3. Add tests for new features
+4. Submit a pull request
+
+## License
+
+MIT License

@@ -1,0 +1,47 @@
+name: property_recommender
+version: "1.0.0"
+description: "AI-powered property recommendation engine"
+author: "Your Company Name"
+dependencies:
+  - scikit-learn>=0.24.0
+  - tensorflow>=2.4.0
+  - pandas>=1.2.0
+  - numpy>=1.19.0
+capabilities:
+  - investment_recommendations
+  - similar_properties
+  - market_opportunities
+config_schema:
+  type: object
+  properties:
+    recommendation_strategy:
+      type: string
+      enum: ["collaborative", "content_based", "hybrid"]
+      default: "hybrid"
+    similarity_metrics:
+      type: array
+      items:
+        type: string
+        enum: ["location", "price", "features", "market_trends"]
+      default: ["location", "price", "features"]
+    max_recommendations:
+      type: integer
+      default: 10
+    min_similarity_score:
+      type: number
+      default: 0.7
+    feature_weights:
+      type: object
+      properties:
+        location_weight:
+          type: number
+          default: 0.3
+        price_weight:
+          type: number
+          default: 0.3
+        features_weight:
+          type: number
+          default: 0.2
+        market_weight:
+          type: number
+          default: 0.2

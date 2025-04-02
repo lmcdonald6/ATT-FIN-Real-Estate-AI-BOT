@@ -1,0 +1,48 @@
+name: property_valuation_model
+version: "1.0.0"
+description: "ML model for property valuation and price prediction"
+author: "Your Company Name"
+dependencies:
+  - scikit-learn>=0.24.0
+  - tensorflow>=2.4.0
+  - pandas>=1.2.0
+  - numpy>=1.19.0
+capabilities:
+  - price_prediction
+  - value_analysis
+  - risk_assessment
+config_schema:
+  type: object
+  properties:
+    model_type:
+      type: string
+      enum: ["basic", "advanced"]
+      default: "basic"
+    feature_engineering:
+      type: object
+      properties:
+        use_market_features:
+          type: boolean
+          default: true
+        use_location_features:
+          type: boolean
+          default: true
+        use_property_features:
+          type: boolean
+          default: true
+    training:
+      type: object
+      properties:
+        batch_size:
+          type: integer
+          default: 32
+        epochs:
+          type: integer
+          default: 100
+        validation_split:
+          type: number
+          default: 0.2
+    model_path:
+      type: string
+      description: "Path to save/load model weights"
+      default: "models/property_valuation"

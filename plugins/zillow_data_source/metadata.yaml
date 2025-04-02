@@ -1,0 +1,27 @@
+name: zillow_data_source
+version: "1.0.0"
+description: "Zillow API integration for property data"
+author: "Your Company Name"
+dependencies:
+  - requests>=2.25.0
+  - pandas>=1.2.0
+capabilities:
+  - property_search
+  - property_details
+  - market_trends
+data_sources:
+  - zillow_api
+config_schema:
+  type: object
+  properties:
+    api_key:
+      type: string
+      description: "Zillow API key"
+    cache_ttl:
+      type: integer
+      description: "Cache TTL in seconds"
+      default: 3600
+    max_requests_per_second:
+      type: integer
+      description: "Rate limit for API requests"
+      default: 5
