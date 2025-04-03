@@ -1,0 +1,52 @@
+name: Security Scan
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit safety pylint
+
+    - name: Run Bandit
+      run: bandit -r src/ -f json -o bandit-results.json
+
+    - name: Check dependencies
+      run: safety check
+
+    - name: Run Pylint security checks
+      run: pylint --disable=all --enable=security src/
+
+    - name: Run OWASP Dependency Check
+      uses: dependency-check/Dependency-Check_Action@main
+      with:
+        project: 'Real Estate Analysis'
+        path: '.'
+        format: 'HTML'
+
+    - name: Upload security results
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: bandit-results.json
+
+    - name: Upload dependency check results
+      uses: actions/upload-artifact@v3
+      with:
+        name: dependency-check-report
+        path: dependency-check-report.html
