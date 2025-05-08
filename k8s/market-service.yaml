@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: market-service
+  labels:
+    app: market-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: market-service
+  template:
+    metadata:
+      labels:
+        app: market-service
+    spec:
+      containers:
+      - name: market-service
+        image: realestate-ai/market-service:latest
+        ports:
+        - containerPort: 8001
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: database-url
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              name: redis-secrets
+              key: redis-url
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8001
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8001
+          initialDelaySeconds: 15
+          periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: market-service
+spec:
+  selector:
+    app: market-service
+  ports:
+  - port: 80
+    targetPort: 8001
+  type: ClusterIP

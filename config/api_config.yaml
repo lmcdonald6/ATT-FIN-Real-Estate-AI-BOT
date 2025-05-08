@@ -1,0 +1,79 @@
+# API Configuration
+property_data:
+  zillow:
+    api_key: ""  # Get from https://www.zillow.com/howto/api/APIOverview.htm
+    base_url: "https://api.bridgedataoutput.com/api/v2/zestimate"
+    rate_limit: 100  # calls per minute
+    
+  realtor:
+    api_key: ""  # Get from https://rapidapi.com/apidojo/api/realtor
+    base_url: "https://realtor.p.rapidapi.com/properties/v2"
+    rate_limit: 500
+
+  redfin:
+    api_key: ""  # Get from Redfin API portal
+    base_url: "https://api.redfin.com/v1"
+    rate_limit: 100
+
+geographic_data:
+  census:
+    api_key: ""  # Get from https://api.census.gov/data/key_signup.html
+    base_url: "https://api.census.gov/data"
+    datasets:
+      - "acs/acs5"  # American Community Survey
+      - "dec/sf1"   # Decennial Census
+  
+  google_maps:
+    api_key: ""  # Get from Google Cloud Console
+    enabled_apis:
+      - "places"
+      - "geocoding"
+      - "distance_matrix"
+      - "street_view"
+    rate_limit: 500
+
+  walk_score:
+    api_key: ""  # Get from https://www.walkscore.com/professional/api.php
+    base_url: "https://api.walkscore.com/score"
+
+business_data:
+  bls:  # Bureau of Labor Statistics
+    api_key: ""  # Get from https://www.bls.gov/developers/
+    base_url: "https://api.bls.gov/publicAPI/v2"
+    datasets:
+      - "LA"  # Local Area Unemployment
+      - "CE"  # Consumer Expenditure
+
+  city_data:
+    permits_api_url: ""  # City-specific API
+    zoning_api_url: ""
+    api_key: ""
+
+crime_data:
+  fbi:
+    api_key: ""  # Get from https://api.data.gov/signup/
+    base_url: "https://api.usa.gov/crime/fbi/sapi"
+  
+  spot_crime:
+    api_key: ""  # Get from https://spotcrime.com/api
+    base_url: "https://api.spotcrime.com/crimes.json"
+
+transportation:
+  transit_land:
+    api_key: ""  # Get from https://transit.land/documentation/datastore/api-keys.html
+    base_url: "https://transit.land/api/v2"
+  
+  city_transport:
+    api_key: ""  # City-specific API
+    base_url: ""
+
+# Rate limiting and caching configuration
+rate_limiting:
+  default_rate: 60  # requests per minute
+  burst_size: 10
+
+caching:
+  property_data: 3600  # 1 hour
+  demographic_data: 86400  # 24 hours
+  crime_data: 43200  # 12 hours
+  transport_data: 1800  # 30 minutes

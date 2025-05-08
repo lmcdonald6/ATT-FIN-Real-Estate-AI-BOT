@@ -1,0 +1,40 @@
+redis:
+  host: localhost
+  port: 6379
+  password: null  # Set in production
+  ssl: false
+  
+  # Cache TTLs (in seconds)
+  ttl:
+    property_details: 3600  # 1 hour
+    market_analysis: 7200   # 2 hours
+    market_trends: 86400    # 24 hours
+    static_data: 604800     # 1 week
+    
+  # Cache keys prefixes
+  prefixes:
+    property: "prop:"
+    market: "mkt:"
+    trends: "trend:"
+    static: "static:"
+    
+  # Pool settings
+  pool:
+    max_connections: 10
+    min_connections: 2
+    timeout: 20
+    
+  # Circuit breaker
+  circuit_breaker:
+    failure_threshold: 5
+    reset_timeout: 60
+    
+  # Compression
+  compression:
+    enabled: true
+    min_size: 1024  # bytes
+    
+  # Monitoring
+  monitoring:
+    enabled: true
+    metrics_port: 9121

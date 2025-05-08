@@ -1,38 +1,53 @@
-version: '3.8'
-
 services:
   app:
     build: .
     ports:
-      - "8000:8000"  # API
-      - "9090:9090"  # Metrics
-    volumes:
-      - ./config:/app/config
-      - ./data:/app/data
-      - ./models:/app/models
+      - "8000:8000"
     environment:
-      - CONFIG_FILE=/app/config/local.yaml
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=realestate
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin123
+      - REDIS_HOST=redis
+      - REDIS_PORT=16379
     depends_on:
       - db
       - redis
+      - prometheus
+    volumes:
+      - ./src:/app/src
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   db:
-    image: postgres:15
+    image: postgres:13
     environment:
-      POSTGRES_USER: realestate
-      POSTGRES_PASSWORD: realestate
-      POSTGRES_DB: realestate
+      - POSTGRES_DB=realestate
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin123
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d realestate"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   redis:
-    image: redis:7
-    ports:
-      - "6379:6379"
+    image: redis:6-alpine
     volumes:
       - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   prometheus:
     image: prom/prometheus

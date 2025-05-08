@@ -13,15 +13,17 @@ security:
     - "http://localhost:8000"
 
 database:
-  url: "postgresql://realestate:realestate@localhost:5432/realestate"
+  url: "postgresql://admin:admin123@db:5432/realestate"
   pool_size: 5
   max_overflow: 10
   echo: true
 
 cache:
   type: "redis"
-  url: "redis://localhost:6379/0"
+  url: "redis://redis:6379/0"
   ttl: 3600
+  max_connections: 10
+  socket_timeout: 5
 
 analyzers:
   business_permits:
