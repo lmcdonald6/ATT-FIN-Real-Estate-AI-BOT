@@ -1,0 +1,145 @@
+service: real-estate-ai
+
+provider:
+  name: aws
+  runtime: python3.9
+  memorySize: 256
+  timeout: 30
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  
+  environment:
+    REDIS_HOST: ${self:custom.redis.host}
+    REDIS_PORT: ${self:custom.redis.port}
+    DB_HOST: ${self:custom.database.host}
+    DB_NAME: ${self:custom.database.name}
+    STAGE: ${self:provider.stage}
+    
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+        - s3:PutObject
+      Resource: 
+        - "arn:aws:s3:::${self:custom.bucket.name}/*"
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.dynamodb.table}"
+
+custom:
+  bucket:
+    name: ${self:service}-${self:provider.stage}-storage
+  dynamodb:
+    table: ${self:service}-${self:provider.stage}-cache
+  redis:
+    host: ${ssm:/redis/host}
+    port: 6379
+  database:
+    host: ${ssm:/database/host}
+    name: realestate_${self:provider.stage}
+
+functions:
+  marketAnalysis:
+    handler: handlers/market.analyze
+    events:
+      - http:
+          path: /market/analyze
+          method: post
+          cors: true
+    memorySize: 512
+    timeout: 30
+    environment:
+      CACHE_TTL: 3600
+
+  propertyValuation:
+    handler: handlers/property.valuate
+    events:
+      - http:
+          path: /property/valuate
+          method: post
+          cors: true
+    memorySize: 256
+    timeout: 15
+
+  batchPredictions:
+    handler: handlers/ml.batch_predict
+    events:
+      - schedule:
+          rate: rate(1 hour)
+          enabled: true
+    memorySize: 1024
+    timeout: 300
+    environment:
+      BATCH_SIZE: 100
+
+  dataArchive:
+    handler: handlers/storage.archive_old_data
+    events:
+      - schedule:
+          rate: rate(1 day)
+          enabled: true
+    memorySize: 512
+    timeout: 900
+
+resources:
+  Resources:
+    StorageBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.bucket.name}
+        LifecycleConfiguration:
+          Rules:
+            - Id: ArchiveOldData
+              Status: Enabled
+              Transitions:
+                - StorageClass: STANDARD_IA
+                  TransitionInDays: 90
+                - StorageClass: GLACIER
+                  TransitionInDays: 180
+
+    CacheTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.dynamodb.table}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: expires
+            AttributeType: N
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        GlobalSecondaryIndexes:
+          - IndexName: expires-index
+            KeySchema:
+              - AttributeName: expires
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
+        BillingMode: PAY_PER_REQUEST
+        TimeToLiveSpecification:
+          AttributeName: expires
+          Enabled: true
+
+plugins:
+  - serverless-python-requirements
+  - serverless-offline
+
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!.git/**'
+    - '!.env'
+    - '!.env.*'
+    - '!*.md'
+    - '!tests/**'

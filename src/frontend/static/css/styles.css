@@ -1,0 +1,281 @@
+/* Custom styles for Real Estate AI Dashboard */
+
+/* Font settings */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Property Cards */
+.property-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.property-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Chat Widget */
+#chat-widget {
+    transition: all 0.3s ease-in-out;
+}
+
+#chat-messages {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.message-bubble {
+    max-width: 75%;
+    word-wrap: break-word;
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Lead Score Colors */
+.lead-score-high {
+    background-color: #34D399;
+    color: #065F46;
+}
+
+.lead-score-medium {
+    background-color: #FBBF24;
+    color: #92400E;
+}
+
+.lead-score-low {
+    background-color: #F87171;
+    color: #991B1B;
+}
+
+/* Charts */
+.chart-container {
+    position: relative;
+    height: 300px;
+}
+
+/* Form Controls */
+input[type="text"],
+select {
+    transition: border-color 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: #4F46E5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+/* Buttons */
+button {
+    transition: all 0.2s ease-in-out;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Error Messages */
+.error-message {
+    background-color: #FEE2E2;
+    color: #991B1B;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    margin: 0.5rem 0;
+}
+
+/* Success Messages */
+.success-message {
+    background-color: #D1FAE5;
+    color: #065F46;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    margin: 0.5rem 0;
+}
+
+/* Tooltips */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background: #1F2937;
+    color: white;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+[data-tooltip]:hover:before {
+    opacity: 1;
+}
+
+/* Hover effects for interactive elements */
+.hover-shadow:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+/* Custom button styles */
+.custom-button {
+    transition: all 0.2s ease;
+}
+
+.custom-button:hover {
+    transform: translateY(-1px);
+}
+
+.custom-button:active {
+    transform: translateY(0);
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+/* Status indicators */
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.status-high {
+    background-color: #10B981;
+}
+
+.status-medium {
+    background-color: #F59E0B;
+}
+
+.status-low {
+    background-color: #EF4444;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .property-card {
+        margin-bottom: 1rem;
+    }
+    
+    #chat-messages {
+        width: 100%;
+        max-width: none;
+        border-radius: 0;
+    }
+    
+    .chart-container {
+        height: 250px;
+    }
+    
+    .chart-container {
+        min-height: 12rem;
+    }
+    
+    #price-trends, #market-stats {
+        height: 250px;
+    }
+    
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animation for data updates */
+.data-update {
+    animation: highlight 1s ease-out;
+}
+
+@keyframes highlight {
+    0% {
+        background-color: rgba(79, 70, 229, 0.1);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+/* Custom select styles */
+select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    background-color: #1F2937;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
