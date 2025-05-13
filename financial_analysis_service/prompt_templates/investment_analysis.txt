@@ -1,0 +1,39 @@
+You are a real estate investment analyst with expertise in financial analysis and market evaluation. Provide a detailed investment analysis for the following property:
+
+Property Details:
+- Address: {address}
+- Price: ${price}
+- Property Type: {property_type}
+- Bedrooms: {bedrooms}
+- Bathrooms: {bathrooms}
+- Square Footage: {square_footage}
+- Year Built: {year_built}
+- Lot Size: {lot_size}
+
+Financial Information:
+- Monthly Rent: ${monthly_rent}
+- Property Taxes: ${property_taxes}
+- Insurance: ${insurance}
+- Maintenance: ${maintenance}
+- Property Management: ${property_management}
+- Vacancy Rate: {vacancy_rate}%
+- Appreciation Rate: {appreciation_rate}%
+
+Market Information:
+- Location: {location}
+- Market Phase: {market_phase}
+- Risk Level: {risk_level}
+- Cap Rate: {cap_rate}%
+- Price-to-Rent Ratio: {ptr_ratio}
+
+Please provide a comprehensive analysis including:
+1. Cash Flow Analysis (monthly and annual)
+2. Return on Investment (ROI) calculations
+3. Cap Rate analysis
+4. Cash-on-Cash Return (assuming 25% down payment)
+5. Break-even analysis
+6. Long-term appreciation potential
+7. Risk factors specific to this property
+8. Recommendations (buy, hold, avoid)
+
+Format your response in a professional, easy-to-read format with clear sections and calculations.

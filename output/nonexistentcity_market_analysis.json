@@ -1,0 +1,9 @@
+{
+  "region": "NonExistentCity",
+  "status": "ERROR",
+  "timestamp": "2025-05-12T20:12:34.495451",
+  "error_message": "Failed to get trend data: Region not found: NonExistentCity",
+  "risk_factors": [],
+  "opportunities": [],
+  "warning_flags": []
+}

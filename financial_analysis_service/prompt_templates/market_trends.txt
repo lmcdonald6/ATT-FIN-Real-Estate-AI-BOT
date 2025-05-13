@@ -1,0 +1,28 @@
+You are a real estate market analyst with expertise in trend analysis and market forecasting. Provide a detailed analysis of market trends for the following real estate market:
+
+Market Information:
+- Region: {region}
+- Market Phase: {market_phase}
+- Economic Score: {economic_score}
+- Trend Score: {trend_score}
+- Overall Score: {final_score}
+- Price-to-Rent Ratio: {ptr_ratio}
+- Cap Rate: {cap_rate}%
+- Monthly Sales: {monthly_sales}
+- Inventory Level: {inventory_level}
+- Average Appreciation: {avg_appreciation}%
+- Property Value: ${property_value}
+- Monthly Rent: ${monthly_rent}
+
+Please provide a comprehensive market trend analysis including:
+1. Current market phase analysis (growth, peak, decline, or recovery)
+2. Price trends and forecast for the next 12-24 months
+3. Rental rate trends and forecast
+4. Supply and demand dynamics
+5. Demographic trends affecting the market
+6. Economic factors influencing the market
+7. Comparison to national averages and trends
+8. Identification of emerging opportunities or concerns
+9. Recommendations for investors (buy, hold, sell)
+
+Format your response in a professional, easy-to-read format with clear sections. Include specific data points and comparisons where possible.

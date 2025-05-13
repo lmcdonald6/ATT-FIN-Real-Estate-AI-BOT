@@ -1,10 +1,30 @@
 # ATT-FIN Real Estate AI BOT
 
-An intelligent real estate analysis bot with comprehensive property insights.
+## Overview
+An advanced AI-powered real estate analysis platform that provides hyperlocal investment insights, market analysis, and property recommendations.
+
+## Current Status
+- Core infrastructure setup complete
+- Interactive dashboard implemented with Streamlit
+- Advanced data scraping module for Zillow and Realtor.com
+- Financial analysis using LLMs integrated
+- AI model auditing and validation with Giskard
+- AI tools directory integration
+- Microservice architecture implemented
 
 ## Features
 
-### 🎯 Precision Over Predictions
+### Data Sources (Mock Implementation Ready)
+- Zillow API
+- Realtor.com API
+- Redfin API
+- Census Bureau API
+- Walk Score API
+- Google Maps API
+- FBI Crime Data API
+- OpenCage Geocoding API
+- Geoapify API
+- Transitland APIs
 - Analysis of 17 distinct market factors
 - 95% accuracy in property valuation
 - Forward-looking data analysis
@@ -67,13 +87,27 @@ uvicorn src.main:app --reload
 
 ```
 ATT-FIN-Real-Estate-AI-BOT/
-├── src/                    # Source code
-├── tests/                  # Test files
-├── docs/                   # Documentation
-├── config/                 # Configuration files
-├── models/                 # ML models
-├── data/                   # Data files
-└── requirements.txt        # Project dependencies
+├── src/                           # Core source code
+│   ├── modules/                   # Core modules
+│   ├── controllers/               # API controllers
+│   └── utils/                     # Utility functions
+├── dashboard_service/             # Interactive Streamlit dashboard
+│   ├── components/                # Dashboard UI components
+│   └── services/                  # Dashboard backend services
+├── financial_analysis_service/    # Financial analysis using LLMs
+├── data_scraping_service/         # Data scraping modules
+│   ├── scrapers/                  # Website-specific scrapers
+│   └── data/                      # Scraped data storage
+├── model_audit_service/           # AI model auditing and validation
+│   ├── auditors/                  # Model-specific auditors
+│   └── reporting/                 # Audit reporting tools
+├── ai_tools_directory/            # AI tools registry and integration
+│   ├── integrations/              # Tool-specific integrations
+│   └── configs/                   # Tool configurations
+├── tests/                         # Test files
+├── docs/                          # Documentation
+├── config/                        # Configuration files
+└── requirements.txt               # Project dependencies
 ```
 
 ## Documentation

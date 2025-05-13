@@ -5,9 +5,8 @@ import logging
 import time
 from prometheus_client import make_asgi_app
 
-from .api.v1 import property, market
-from .utils.metrics import API_REQUEST_COUNT, API_LATENCY
-from .config import get_settings, get_service_config
+from .api.v1.analyzer import router as analyzer_router
+from datetime import datetime
 
 # Configure logging
 logging.basicConfig(
@@ -22,9 +21,9 @@ service_config = get_service_config()
 
 # Create FastAPI app
 app = FastAPI(
-    title='Real Estate AI Bot',
-    description='AI-powered real estate analysis and investment recommendations',
-    version='1.0.0',
+    title="ATT-FIN Real Estate AI Bot",
+    description="AI-powered property analysis and investment insight engine.",
+    version="0.1.0",
     docs_url='/docs',
     redoc_url='/redoc'
 )

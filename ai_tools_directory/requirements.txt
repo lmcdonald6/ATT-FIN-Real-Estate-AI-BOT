@@ -1,0 +1,4 @@
+# AI Tools Directory Requirements
+requests==2.28.2
+python-dotenv==1.0.0
+importlib-metadata==6.0.0

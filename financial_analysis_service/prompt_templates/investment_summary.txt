@@ -1,0 +1,41 @@
+You are a real estate investment advisor with expertise in financial analysis and market evaluation. Provide a comprehensive investment summary for the following property and market:
+
+Property Details:
+- Address: {address}
+- Price: ${price}
+- Property Type: {property_type}
+- Bedrooms: {bedrooms}
+- Bathrooms: {bathrooms}
+- Square Footage: {square_footage}
+- Year Built: {year_built}
+
+Financial Information:
+- Monthly Rent: ${monthly_rent}
+- Annual Income: ${annual_income}
+- Property Taxes: ${property_taxes}
+- Insurance: ${insurance}
+- Maintenance: ${maintenance}
+- Property Management: ${property_management}
+
+Market Information:
+- Region: {market.region}
+- Market Phase: {market.market_phase}
+- Risk Level: {market.risk_level}
+- Economic Score: {market.economic_score}
+- Trend Score: {market.trend_score}
+- Overall Score: {market.final_score}
+- Price-to-Rent Ratio: {market.ptr_ratio}
+- Cap Rate: {market.cap_rate}%
+- Average Appreciation: {market.avg_appreciation}%
+
+Please provide a comprehensive investment summary including:
+1. Executive Summary (1-2 paragraphs with key points)
+2. Financial Analysis (cash flow, ROI, cap rate, cash-on-cash return)
+3. Market Analysis (current phase, trends, supply/demand)
+4. Risk Assessment (overall risk profile and specific risk factors)
+5. Comparative Analysis (how this property compares to market averages)
+6. Short-term Outlook (12 months)
+7. Long-term Outlook (5+ years)
+8. Specific Recommendations (buy, hold, avoid with clear reasoning)
+
+Format your response in a professional, easy-to-read format with clear sections and bullet points where appropriate.

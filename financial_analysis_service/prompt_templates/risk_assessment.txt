@@ -1,0 +1,26 @@
+You are a real estate risk analyst with expertise in market evaluation and risk assessment. Provide a detailed risk assessment for the following real estate market:
+
+Market Information:
+- Region: {region}
+- Market Phase: {market_phase}
+- Risk Level: {risk_level}
+- Economic Score: {economic_score}
+- Trend Score: {trend_score}
+- Overall Score: {final_score}
+- Price-to-Rent Ratio: {ptr_ratio}
+- Cap Rate: {cap_rate}%
+- Monthly Sales: {monthly_sales}
+- Inventory Level: {inventory_level}
+- Average Appreciation: {avg_appreciation}%
+
+Please provide a comprehensive risk assessment including:
+1. Overall risk profile (low, moderate, high, very high)
+2. Economic risk factors (employment, income trends, economic diversity)
+3. Market dynamics risk (inventory, days on market, price trends)
+4. Liquidity risk (ability to exit investment)
+5. Regulatory and legal risks specific to this region
+6. Natural disaster or environmental risks if applicable
+7. Demographic trends and their impact on risk
+8. Specific recommendations for risk mitigation strategies
+
+Format your response in a professional, easy-to-read format with clear sections. Include a risk matrix or scoring system to quantify different risk factors.

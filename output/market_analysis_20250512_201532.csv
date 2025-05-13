@@ -1,0 +1,4 @@
+region,status,timestamp,risk_factors,opportunities,warning_flags
+Atlanta,ERROR,2025-05-12T20:15:32.158588,[],[],[]
+Chicago,ERROR,2025-05-12T20:15:32.171511,[],[],[]
+Los Angeles,ERROR,2025-05-12T20:15:32.181808,[],[],[]

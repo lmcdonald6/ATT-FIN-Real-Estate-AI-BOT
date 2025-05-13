@@ -1,0 +1,73 @@
+{
+    "zipcode": "90210",
+    "location": {
+        "city": "Beverly Hills",
+        "state": "CA",
+        "lat": 34.0901,
+        "lng": -118.4065
+    },
+    "signals": {
+        "permits": {
+            "permit_score": 85.5,
+            "residential_permits": 45,
+            "commercial_permits": 12,
+            "renovation_permits": 156
+        },
+        "demographics": {
+            "migration_score": 78.2,
+            "population_growth": 2.8,
+            "median_income": 145000,
+            "median_age": 41,
+            "employment_rate": 0.97
+        },
+        "crime": {
+            "crime_score": 82.4,
+            "violent_crime_rate": 125.3,
+            "property_crime_rate": 1850.6,
+            "crime_trend": -5.2
+        },
+        "transit": {
+            "transit_score": 68.9,
+            "public_transit_stops": 28,
+            "bus_lines": 6,
+            "rail_lines": 1,
+            "avg_commute_time": 24.5
+        },
+        "zoning": {
+            "zoning_score": 72.3,
+            "mixed_use": 22.5,
+            "development_potential": 65.8,
+            "density_allowed": 45,
+            "zoning_changes": [
+                {
+                    "type": "density_increase",
+                    "date": "2024-12-15",
+                    "details": "Approved higher density residential development"
+                },
+                {
+                    "type": "mixed_use",
+                    "date": "2024-08-22",
+                    "details": "New mixed-use overlay zone added"
+                }
+            ]
+        }
+    },
+    "market_stats": {
+        "median_home_price": 725000,
+        "price_growth_1y": 8.5,
+        "rental_vacancy": 3.2,
+        "cap_rate_avg": 4.8
+    },
+    "opportunities": [
+        {
+            "type": "development",
+            "description": "Mixed-use development potential in transit corridor",
+            "roi_estimate": 15.2
+        },
+        {
+            "type": "renovation",
+            "description": "High demand for updated luxury properties",
+            "roi_estimate": 12.8
+        }
+    ]
+}
