@@ -6,6 +6,7 @@ pydantic>=2.0
 fastapi>=0.90.0
 uvicorn>=0.20.0
 asyncio
+jinja2>=3.1.2
 
 # Dashboard service
 streamlit>=1.24.0
@@ -48,3 +49,20 @@ reportlab>=4.0.4
 xlsxwriter>=3.1.0
 pdfkit>=1.0.0
 weasyprint>=60.1
+fpdf>=1.7.2
+chardet>=5.0.0
+
+# Inference Layers
+prophet>=1.1.4
+xgboost>=1.7.6
+statsmodels>=0.14.0
+geopy>=2.3.0
+
+# API and Geospatial
+fastapi-cors>=0.0.6
+shapely>=2.0.1
+geopandas>=0.13.2
+geojson>=3.0.1
+fastapi-utils>=0.2.1
+python-multipart>=0.0.6
+duckdb>=0.8.1

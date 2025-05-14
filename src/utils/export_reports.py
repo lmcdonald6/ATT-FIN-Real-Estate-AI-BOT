@@ -39,6 +39,14 @@ except ImportError:
     logger.warning("XlsxWriter package not installed. Excel export will be limited.")
     EXCEL_AVAILABLE = False
 
+try:
+    from reportlab.lib.pagesizes import letter
+    from reportlab.pdfgen import canvas
+    REPORTLAB_AVAILABLE = True
+except ImportError:
+    logger.warning("ReportLab package not installed. PDF export will fall back to FPDF.")
+    REPORTLAB_AVAILABLE = False
+
 
 def generate_pdf_summary(zip_code: str, summary: str, scores: dict, output_path="output") -> str:
     """
@@ -53,77 +61,89 @@ def generate_pdf_summary(zip_code: str, summary: str, scores: dict, output_path=
     Returns:
         Path to the generated PDF file
     """
-    if not FPDF_AVAILABLE:
-        logger.error("FPDF package not installed. Cannot generate PDF.")
-        return ""
-    
     try:
-        # Create output directory if it doesn't exist
-        os.makedirs(output_path, exist_ok=True)
+        # Import the new PDF generator
+        from src.utils.pdf_generator import generate_pdf_summary as pdf_generator
         
-        # Generate filename with timestamp
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"{zip_code}_real_estate_summary_{timestamp}.pdf"
-        filepath = os.path.join(output_path, filename)
-        
-        # Create PDF
-        pdf = FPDF()
-        pdf.add_page()
-        
-        # Add header
-        pdf.set_font("Arial", "B", size=16)
-        pdf.cell(200, 10, txt=f"Real Estate Analysis for ZIP: {zip_code}", ln=True, align="C")
-        pdf.ln(5)
-        
-        # Add timestamp
-        pdf.set_font("Arial", "I", size=10)
-        pdf.cell(200, 10, txt=f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", ln=True, align="C")
-        pdf.ln(10)
-        
-        # Add scores section
-        pdf.set_font("Arial", "B", size=14)
-        pdf.cell(200, 10, txt="Analysis Scores", ln=True)
-        pdf.ln(5)
-        
-        # Add scores table
-        pdf.set_font("Arial", size=12)
-        for label, score in scores.items():
-            # Format score as integer if it's a whole number
-            if isinstance(score, (int, float)):
-                score_str = str(int(score)) if score == int(score) else f"{score:.1f}"
-            else:
-                score_str = str(score)
-                
-            pdf.cell(100, 10, txt=label, border=1)
-            pdf.cell(100, 10, txt=score_str, border=1, ln=True)
-        
-        pdf.ln(10)
-        
-        # Add summary section
-        pdf.set_font("Arial", "B", size=14)
-        pdf.cell(200, 10, txt="Summary", ln=True)
-        pdf.ln(5)
-        
-        # Add summary text
-        pdf.set_font("Arial", size=12)
-        pdf.multi_cell(0, 10, txt=summary)
-        
-        # Add disclaimer
-        pdf.ln(10)
-        pdf.set_font("Arial", "I", size=10)
-        pdf.set_text_color(120)
-        disclaimer = "Disclaimer: This summary is for informational purposes only and does not constitute investment advice or real estate services. Always consult a licensed professional."
-        pdf.multi_cell(0, 8, txt=disclaimer)
-        
-        # Save PDF
-        pdf.output(filepath)
+        # Use the new PDF generator
+        filepath = pdf_generator(zip_code, summary, scores, output_path)
         logger.info(f"Generated PDF report: {filepath}")
         
         return filepath
-    
-    except Exception as e:
-        logger.error(f"Error generating PDF: {e}")
-        return ""
+    except ImportError:
+        logger.warning("PDF generator module not found. Falling back to FPDF implementation.")
+        
+        if not FPDF_AVAILABLE:
+            logger.error("FPDF package not installed. Cannot generate PDF.")
+            return ""
+        
+        try:
+            # Create output directory if it doesn't exist
+            os.makedirs(output_path, exist_ok=True)
+            
+            # Generate filename with timestamp
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"{zip_code}_real_estate_summary_{timestamp}.pdf"
+            filepath = os.path.join(output_path, filename)
+            
+            # Create PDF
+            pdf = FPDF()
+            pdf.add_page()
+            
+            # Add header
+            pdf.set_font("Arial", "B", size=16)
+            pdf.cell(200, 10, txt=f"Real Estate Analysis for ZIP: {zip_code}", ln=True, align="C")
+            pdf.ln(5)
+            
+            # Add timestamp
+            pdf.set_font("Arial", "I", size=10)
+            pdf.cell(200, 10, txt=f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", ln=True, align="C")
+            pdf.ln(10)
+            
+            # Add scores section
+            pdf.set_font("Arial", "B", size=14)
+            pdf.cell(200, 10, txt="Analysis Scores", ln=True)
+            pdf.ln(5)
+            
+            # Add scores table
+            pdf.set_font("Arial", size=12)
+            for label, score in scores.items():
+                # Format score as integer if it's a whole number
+                if isinstance(score, (int, float)):
+                    score_str = str(int(score)) if score == int(score) else f"{score:.1f}"
+                else:
+                    score_str = str(score)
+                    
+                pdf.cell(100, 10, txt=label, border=1)
+                pdf.cell(100, 10, txt=score_str, border=1, ln=True)
+            
+            pdf.ln(10)
+            
+            # Add summary section
+            pdf.set_font("Arial", "B", size=14)
+            pdf.cell(200, 10, txt="Summary", ln=True)
+            pdf.ln(5)
+            
+            # Add summary text
+            pdf.set_font("Arial", size=12)
+            pdf.multi_cell(0, 10, txt=summary)
+            
+            # Add disclaimer
+            pdf.ln(10)
+            pdf.set_font("Arial", "I", size=10)
+            pdf.set_text_color(120)
+            disclaimer = "Disclaimer: This summary is for informational purposes only and does not constitute investment advice or real estate services. Always consult a licensed professional."
+            pdf.multi_cell(0, 8, txt=disclaimer)
+            
+            # Save PDF
+            pdf.output(filepath)
+            logger.info(f"Generated PDF report: {filepath}")
+            
+            return filepath
+        
+        except Exception as e:
+            logger.error(f"Error generating PDF: {e}")
+            return ""
 
 
 def export_to_csv(data: Dict[str, Any], output_path="output") -> str:
