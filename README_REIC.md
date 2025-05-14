@@ -38,11 +38,17 @@ The API now features a modular router-based architecture:
 - Export options (PDF, CSV, Excel)
 - User profiles and preferences
 
-### 4. Street-Level Analysis
+### 4. Social Sentiment Street-Level Analysis
 
-- Granular analysis of specific streets
-- Multi-platform data source integration
+- Granular analysis of specific streets and blocks
+- Multi-platform social media data source integration
+- Emotional intelligence for neighborhood reputation scoring
+- Sentiment trend tracking over time
 - Comparative analysis across neighborhoods
+- Real-time social buzz monitoring
+- Hyperlocal insights unavailable in traditional metrics
+
+The street-level sentiment analysis provides unprecedented granularity in understanding neighborhood dynamics, capturing the 'feel' of an area beyond just quantitative metrics. This emotional intelligence layer integrates with quantitative analysis to provide a complete picture of real estate opportunities.
 
 ## Architecture
 
