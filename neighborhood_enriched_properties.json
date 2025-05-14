@@ -1,0 +1,125 @@
+[
+  {
+    "property_id": "P12345",
+    "address": "123 Main St, Atlanta, GA 30308",
+    "neighborhood": "Atlanta Beltline",
+    "price": 450000,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "square_feet": 1200,
+    "neighborhood_analysis": {
+      "sentiment_data": {
+        "location": "Atlanta Beltline",
+        "success": true,
+        "data_source": "specific_mock",
+        "posts_analyzed": 4,
+        "sentiment_summary": "Overall sentiment score: 8/10\n\nKey themes mentioned:\n1. Walkability and accessibility\n2. Rising property values and gentrification\n3. Abundance of amenities (restaurants, shops, parks)\n4. Active lifestyle and community events\n5. Crowding during peak times\n\nPositive aspects:\n- Excellent for walking, running, and biking\n- Numerous restaurants, bars, and shops along the trail\n- Art installations and cultural attractions\n- Improved safety in previously neglected areas\n- Community events and farmers markets\n\nNegative aspects:\n- Rising housing costs and gentrification\n- Crowded during weekends and events\n- Noise from foot traffic and businesses\n- Limited parking in some areas\n- Incomplete sections in some parts of the city\n\nWho would enjoy living here:\n- Young professionals and couples who value an active, social lifestyle\n- Those who prefer walking/biking over driving\n- People who enjoy urban amenities and don't mind paying a premium\n- Art and culture enthusiasts\n\nWho might not enjoy living here:\n- Those seeking quiet, suburban environments\n- Budget-conscious individuals and families\n- People who rely heavily on cars for transportation\n- Those who prefer more space and privacy",
+        "sources": [],
+        "timestamp": "2025-05-13T19:38:48.102769",
+        "mock_data": true
+      },
+      "investment_factors": {
+        "sentiment_score": 8.0,
+        "price_trend": "rising",
+        "rental_potential": "high",
+        "development_outlook": "positive",
+        "risk_factors": [
+          "Rising housing costs and gentrification",
+          "Crowded during weekends and events",
+          "Noise from foot traffic and businesses",
+          "Limited parking in some areas",
+          "Incomplete sections in some parts of the city"
+        ],
+        "opportunity_factors": [
+          "Excellent for walking, running, and biking",
+          "Numerous restaurants, bars, and shops along the trail",
+          "Art installations and cultural attractions",
+          "Improved safety in previously neglected areas",
+          "Community events and farmers markets"
+        ]
+      }
+    }
+  },
+  {
+    "property_id": "P67890",
+    "address": "456 Park Ave, New York, NY 10022",
+    "neighborhood": "Midtown Manhattan",
+    "price": 1200000,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "square_feet": 850,
+    "neighborhood_analysis": {
+      "sentiment_data": {
+        "location": "Midtown Manhattan",
+        "success": true,
+        "data_source": "specific_mock",
+        "posts_analyzed": 4,
+        "sentiment_summary": "Overall sentiment score: 7/10\n\nKey themes mentioned:\n1. Unmatched convenience and central location\n2. High cost of living and small living spaces\n3. Noise and crowds, especially from tourists\n4. Excellent access to cultural attractions and amenities\n5. Lack of neighborhood feel and community\n\nPositive aspects:\n- Central location with easy access to the entire city\n- World-class entertainment, dining, and shopping options\n- Proximity to major attractions and cultural institutions\n- Excellent public transportation\n- Prestigious address and iconic architecture\n\nNegative aspects:\n- Very high cost of living, especially for housing\n- Constant noise and crowds\n- Lacks authentic neighborhood feel\n- Limited grocery stores and everyday amenities\n- Can feel empty on weekends and holidays\n\nWho would enjoy living here:\n- Professionals who work in Midtown and value short commutes\n- Those who prioritize convenience and don't mind paying for it\n- People who enjoy the energy and pace of central Manhattan\n- Cultural enthusiasts who frequent museums, theaters, and concerts\n\nWho might not enjoy living here:\n- Families with children who need more space and quieter environments\n- Those seeking a strong community feel and neighborhood identity\n- Budget-conscious individuals\n- People who prefer green spaces and a slower pace of life\n- Light sleepers sensitive to urban noise",
+        "sources": [],
+        "timestamp": "2025-05-13T19:38:48.103393",
+        "mock_data": true
+      },
+      "investment_factors": {
+        "sentiment_score": 7.0,
+        "price_trend": "stable-to-rising",
+        "rental_potential": "moderate-to-high",
+        "development_outlook": "moderately positive",
+        "risk_factors": [
+          "Very high cost of living, especially for housing",
+          "Constant noise and crowds",
+          "Lacks authentic neighborhood feel",
+          "Limited grocery stores and everyday amenities",
+          "Can feel empty on weekends and holidays"
+        ],
+        "opportunity_factors": [
+          "Central location with easy access to the entire city",
+          "World-class entertainment, dining, and shopping options",
+          "Proximity to major attractions and cultural institutions",
+          "Excellent public transportation",
+          "Prestigious address and iconic architecture"
+        ]
+      }
+    }
+  },
+  {
+    "property_id": "P24680",
+    "address": "789 Valencia St, San Francisco, CA 94110",
+    "neighborhood": "Mission District San Francisco",
+    "price": 950000,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "square_feet": 1000,
+    "neighborhood_analysis": {
+      "sentiment_data": {
+        "location": "Mission District San Francisco",
+        "success": true,
+        "data_source": "specific_mock",
+        "posts_analyzed": 4,
+        "sentiment_summary": "Overall sentiment score: 6.5/10\n\nKey themes mentioned:\n1. Cultural diversity and rich Latino heritage\n2. Rapid gentrification and changing neighborhood character\n3. Outstanding food scene and local businesses\n4. Rising housing costs and displacement concerns\n5. Vibrant arts scene, especially murals and street art\n\nPositive aspects:\n- Exceptional dining options from taquerias to fine dining\n- Sunny microclimate (less fog than other parts of SF)\n- Vibrant arts scene and colorful murals\n- Dolores Park and other community gathering spaces\n- Convenient location and good public transportation\n\nNegative aspects:\n- Rapid gentrification displacing long-time residents and businesses\n- Very high and rising housing costs\n- Visible homelessness and income inequality\n- Property crime and safety concerns in some areas\n- Tension between different community groups\n\nWho would enjoy living here:\n- Food and culture enthusiasts\n- Young professionals who value urban amenities\n- Those who appreciate diversity and cultural history\n- People who enjoy a lively, walkable neighborhood\n- Artists and creative types\n\nWho might not enjoy living here:\n- Those seeking quiet, suburban environments\n- Families needing larger homes at affordable prices\n- People uncomfortable with urban issues like homelessness\n- Those who prefer homogeneous, less changing neighborhoods\n- Residents sensitive to noise and crowds",
+        "sources": [],
+        "timestamp": "2025-05-13T19:38:48.103575",
+        "mock_data": true
+      },
+      "investment_factors": {
+        "sentiment_score": 6.5,
+        "price_trend": "stable-to-rising",
+        "rental_potential": "moderate-to-high",
+        "development_outlook": "moderately positive",
+        "risk_factors": [
+          "Rapid gentrification displacing long-time residents and businesses",
+          "Very high and rising housing costs",
+          "Visible homelessness and income inequality",
+          "Property crime and safety concerns in some areas",
+          "Tension between different community groups"
+        ],
+        "opportunity_factors": [
+          "Exceptional dining options from taquerias to fine dining",
+          "Sunny microclimate (less fog than other parts of SF)",
+          "Vibrant arts scene and colorful murals",
+          "Dolores Park and other community gathering spaces",
+          "Convenient location and good public transportation"
+        ]
+      }
+    }
+  }
+]

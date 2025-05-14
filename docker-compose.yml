@@ -1,4 +1,30 @@
 services:
+  # API Gateway - Unified entry point for all services
+  api_gateway:
+    build:
+      context: .
+      dockerfile: ./api_gateway_service/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - API_GATEWAY_KEY=${API_GATEWAY_KEY:-test-api-key}
+    volumes:
+      - ./api_gateway_service:/app/api_gateway_service
+      - ./logs:/app/logs
+    depends_on:
+      - app
+      - dashboard
+      - financial_analysis
+      - data_scraping
+      - model_audit
+      - ai_tools
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      
+  # Core application service (legacy monolith)
   app:
     build: .
     ports:
@@ -22,6 +48,107 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+      
+  # Dashboard Service
+  dashboard:
+    build:
+      context: .
+      dockerfile: ./dashboard_service/Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      - AIRTABLE_API_KEY=${AIRTABLE_API_KEY}
+      - AIRTABLE_BASE_ID=${AIRTABLE_BASE_ID}
+      - AIRTABLE_TABLE_ID=${AIRTABLE_TABLE_ID}
+      - FINANCIAL_ANALYSIS_SERVICE_URL=http://financial_analysis:8001
+    volumes:
+      - ./dashboard_service:/app/dashboard_service
+      - ./logs:/app/logs
+    depends_on:
+      - financial_analysis
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      
+  # Financial Analysis Service
+  financial_analysis:
+    build:
+      context: .
+      dockerfile: ./financial_analysis_service/Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DEFAULT_LLM_MODEL=${DEFAULT_LLM_MODEL:-gpt-4}
+      - MAX_TOKENS=${MAX_TOKENS:-4000}
+      - TEMPERATURE=${TEMPERATURE:-0.7}
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=realestate
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin123
+    volumes:
+      - ./financial_analysis_service:/app/financial_analysis_service
+      - ./logs:/app/logs
+    depends_on:
+      - db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      
+  # Data Scraping Service
+  data_scraping:
+    build:
+      context: .
+      dockerfile: ./data_scraping_service/Dockerfile
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=realestate
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin123
+    volumes:
+      - ./data_scraping_service:/app/data_scraping_service
+      - ./data_scraping_service/data:/app/data_scraping_service/data
+      - ./logs:/app/logs
+    depends_on:
+      - db
+      
+  # Model Audit Service
+  model_audit:
+    build:
+      context: .
+      dockerfile: ./model_audit_service/Dockerfile
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=realestate
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin123
+    volumes:
+      - ./model_audit_service:/app/model_audit_service
+      - ./model_audit_service/audit_results:/app/model_audit_service/audit_results
+      - ./model_audit_service/reports:/app/model_audit_service/reports
+      - ./logs:/app/logs
+    depends_on:
+      - db
+      
+  # AI Tools Directory Service
+  ai_tools:
+    build:
+      context: .
+      dockerfile: ./ai_tools_directory/Dockerfile
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ZILLOW_API_KEY=${ZILLOW_API_KEY}
+    volumes:
+      - ./ai_tools_directory:/app/ai_tools_directory
+      - ./ai_tools_directory/configs:/app/ai_tools_directory/configs
+      - ./logs:/app/logs
 
   db:
     image: postgres:13

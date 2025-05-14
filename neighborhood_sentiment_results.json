@@ -1,0 +1,29 @@
+{
+  "Atlanta Beltline": {
+    "location": "Atlanta Beltline",
+    "success": false,
+    "message": "Could not generate sentiment data for: Atlanta Beltline",
+    "data_source": null,
+    "posts_analyzed": 0,
+    "sentiment_summary": null,
+    "timestamp": "2025-05-13T19:34:01.877314"
+  },
+  "Midtown Manhattan": {
+    "location": "Midtown Manhattan",
+    "success": false,
+    "message": "Could not generate sentiment data for: Midtown Manhattan",
+    "data_source": null,
+    "posts_analyzed": 0,
+    "sentiment_summary": null,
+    "timestamp": "2025-05-13T19:34:05.851284"
+  },
+  "Mission District San Francisco": {
+    "location": "Mission District San Francisco",
+    "success": false,
+    "message": "Could not generate sentiment data for: Mission District San Francisco",
+    "data_source": null,
+    "posts_analyzed": 0,
+    "sentiment_summary": null,
+    "timestamp": "2025-05-13T19:34:10.488493"
+  }
+}

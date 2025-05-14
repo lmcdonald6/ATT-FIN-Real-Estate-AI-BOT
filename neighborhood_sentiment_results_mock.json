@@ -1,0 +1,42 @@
+{
+  "Atlanta Beltline": {
+    "location": "Atlanta Beltline",
+    "success": true,
+    "data_source": "specific_mock",
+    "posts_analyzed": 4,
+    "sentiment_summary": "Overall sentiment score: 8/10\n\nKey themes mentioned:\n1. Walkability and accessibility\n2. Rising property values and gentrification\n3. Abundance of amenities (restaurants, shops, parks)\n4. Active lifestyle and community events\n5. Crowding during peak times\n\nPositive aspects:\n- Excellent for walking, running, and biking\n- Numerous restaurants, bars, and shops along the trail\n- Art installations and cultural attractions\n- Improved safety in previously neglected areas\n- Community events and farmers markets\n\nNegative aspects:\n- Rising housing costs and gentrification\n- Crowded during weekends and events\n- Noise from foot traffic and businesses\n- Limited parking in some areas\n- Incomplete sections in some parts of the city\n\nWho would enjoy living here:\n- Young professionals and couples who value an active, social lifestyle\n- Those who prefer walking/biking over driving\n- People who enjoy urban amenities and don't mind paying a premium\n- Art and culture enthusiasts\n\nWho might not enjoy living here:\n- Those seeking quiet, suburban environments\n- Budget-conscious individuals and families\n- People who rely heavily on cars for transportation\n- Those who prefer more space and privacy",
+    "sources": [],
+    "timestamp": "2025-05-13T19:36:20.215397",
+    "mock_data": true
+  },
+  "Midtown Manhattan": {
+    "location": "Midtown Manhattan",
+    "success": true,
+    "data_source": "specific_mock",
+    "posts_analyzed": 4,
+    "sentiment_summary": "Overall sentiment score: 7/10\n\nKey themes mentioned:\n1. Unmatched convenience and central location\n2. High cost of living and small living spaces\n3. Noise and crowds, especially from tourists\n4. Excellent access to cultural attractions and amenities\n5. Lack of neighborhood feel and community\n\nPositive aspects:\n- Central location with easy access to the entire city\n- World-class entertainment, dining, and shopping options\n- Proximity to major attractions and cultural institutions\n- Excellent public transportation\n- Prestigious address and iconic architecture\n\nNegative aspects:\n- Very high cost of living, especially for housing\n- Constant noise and crowds\n- Lacks authentic neighborhood feel\n- Limited grocery stores and everyday amenities\n- Can feel empty on weekends and holidays\n\nWho would enjoy living here:\n- Professionals who work in Midtown and value short commutes\n- Those who prioritize convenience and don't mind paying for it\n- People who enjoy the energy and pace of central Manhattan\n- Cultural enthusiasts who frequent museums, theaters, and concerts\n\nWho might not enjoy living here:\n- Families with children who need more space and quieter environments\n- Those seeking a strong community feel and neighborhood identity\n- Budget-conscious individuals\n- People who prefer green spaces and a slower pace of life\n- Light sleepers sensitive to urban noise",
+    "sources": [],
+    "timestamp": "2025-05-13T19:36:20.215708",
+    "mock_data": true
+  },
+  "Mission District San Francisco": {
+    "location": "Mission District San Francisco",
+    "success": true,
+    "data_source": "specific_mock",
+    "posts_analyzed": 4,
+    "sentiment_summary": "Overall sentiment score: 6.5/10\n\nKey themes mentioned:\n1. Cultural diversity and rich Latino heritage\n2. Rapid gentrification and changing neighborhood character\n3. Outstanding food scene and local businesses\n4. Rising housing costs and displacement concerns\n5. Vibrant arts scene, especially murals and street art\n\nPositive aspects:\n- Exceptional dining options from taquerias to fine dining\n- Sunny microclimate (less fog than other parts of SF)\n- Vibrant arts scene and colorful murals\n- Dolores Park and other community gathering spaces\n- Convenient location and good public transportation\n\nNegative aspects:\n- Rapid gentrification displacing long-time residents and businesses\n- Very high and rising housing costs\n- Visible homelessness and income inequality\n- Property crime and safety concerns in some areas\n- Tension between different community groups\n\nWho would enjoy living here:\n- Food and culture enthusiasts\n- Young professionals who value urban amenities\n- Those who appreciate diversity and cultural history\n- People who enjoy a lively, walkable neighborhood\n- Artists and creative types\n\nWho might not enjoy living here:\n- Those seeking quiet, suburban environments\n- Families needing larger homes at affordable prices\n- People uncomfortable with urban issues like homelessness\n- Those who prefer homogeneous, less changing neighborhoods\n- Residents sensitive to noise and crowds",
+    "sources": [],
+    "timestamp": "2025-05-13T19:36:20.216017",
+    "mock_data": true
+  },
+  "Random Neighborhood": {
+    "location": "Random Neighborhood",
+    "success": true,
+    "data_source": "generic_mock",
+    "posts_analyzed": 0,
+    "sentiment_summary": "Overall sentiment score: 7/10\n\nKey themes mentioned:\n1. Location convenience and accessibility\n2. Housing quality and value\n3. Local amenities and services\n4. Community feel and neighbor interactions\n5. Safety and security considerations\n\nPositive aspects:\n- Convenient location for many residents\n- Some quality local businesses and services\n- Decent housing stock with some character\n- Pockets of strong community engagement\n- Improving infrastructure in certain areas\n\nNegative aspects:\n- Some concerns about property values and trends\n- Variable quality of public services\n- Traffic and parking challenges in some areas\n- Limited selection of certain amenities\n- Some safety concerns in specific locations\n\nWho would enjoy living here:\n- Those who value the specific location advantages\n- Residents who appreciate the particular community character\n- People who prioritize the housing style available in this area\n\nWho might not enjoy living here:\n- Those seeking significantly different housing options\n- People who prioritize different community characteristics\n- Residents with specific needs not well-served in this area",
+    "sources": [],
+    "timestamp": "2025-05-13T19:36:20.216545",
+    "mock_data": true
+  }
+}
