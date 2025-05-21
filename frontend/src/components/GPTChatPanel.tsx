@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { askApi } from "../utils/apiClient"; // Using the existing API client
+import { askQuestion } from "../lib/apiClient"; // Using the new API client location
 
 interface GPTChatPanelProps {
   initialPrompt?: string;
@@ -26,8 +26,8 @@ export default function GPTChatPanel({ initialPrompt = "" }: GPTChatPanelProps) 
       setLoading(true);
       
       try {
-        // Call the API using the existing askApi client
-        const response = await askApi.askQuestion(prompt);
+        // Call the API using the new askQuestion function
+        const response = await askQuestion(prompt);
         
         // Add bot response to the chat
         const botMessage = { 
@@ -58,8 +58,8 @@ export default function GPTChatPanel({ initialPrompt = "" }: GPTChatPanelProps) 
     setLoading(true);
     
     try {
-      // Call the API using the existing askApi client
-      const response = await askApi.askQuestion(input);
+      // Call the API using the new askQuestion function
+      const response = await askQuestion(input);
       
       // Add bot response to the chat
       const botMessage = { 
