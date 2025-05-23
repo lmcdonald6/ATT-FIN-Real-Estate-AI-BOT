@@ -90,4 +90,20 @@ Website: [reic.ai](https://reic.ai)
 
 ---
 
+## ✅ Live vs Planned Feature Checklist
+
+| Feature                        | Status       | Description                                                                 |
+|-------------------------------|--------------|-----------------------------------------------------------------------------|
+| 🧠 AI Chat Interface           | ✅ Live       | GPT-based responses for property/sentiment queries                          |
+| 📈 Sentiment Trend Engine     | ✅ Live       | ZIP-level reputation charts, keyword trends                                 |
+| 🗂️ Airtable Sync + Log        | ✅ Live       | Logs history, uploads scores, pushes visuals                                |
+| 🧷 GPT Summaries (Basic)      | ✅ MVP        | Human-readable explanations of ZIP/market data                              |
+| 🧠 Cascade Agent Infra        | ✅ Core       | Modular task-chaining via instruction pipelines                             |
+| 📊 ZIP-Level Visuals (Charts) | ✅ Live       | Matplotlib-based sentiment trend and keyword visuals                        |
+| 📡 Street-Level Sentiment     | 🔜 MVP        | TikTok, Reddit, Twitter, YouTube, Yelp scraping for hyperlocal data         |
+| 🧬 Persona Fit Engine         | 🔜 Alpha      | Match people to neighborhoods based on lifestyle and values                 |
+| 🗺️ Interactive Map Overlays  | 🔜 Dev        | Heatmaps for sentiment, safety, events, economic indicators                 |
+
+---
+
 ### 🌀 Built by humans. Powered by AI. Inspired by community.
