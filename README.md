@@ -84,25 +84,57 @@ REIC is built for the future we *want* to live in.
 ## 📬 Join the Mission
 
 Want to contribute? Dream bigger with us?  
-Email: [founder@reic.ai]  
-Twitter: [@reicengine]  
-Website: [reic.ai](https://reic.ai)
+Email:  Upwardhomeservices@gmail.com
+Twitter: In Progress 
+Website: In Progress
 
 ---
 
-## ✅ Live vs Planned Feature Checklist
+## 📦 Outlook
 
-| Feature                        | Status       | Description                                                                 |
-|-------------------------------|--------------|-----------------------------------------------------------------------------|
-| 🧠 AI Chat Interface           | ✅ Live       | GPT-based responses for property/sentiment queries                          |
-| 📈 Sentiment Trend Engine     | ✅ Live       | ZIP-level reputation charts, keyword trends                                 |
-| 🗂️ Airtable Sync + Log        | ✅ Live       | Logs history, uploads scores, pushes visuals                                |
-| 🧷 GPT Summaries (Basic)      | ✅ MVP        | Human-readable explanations of ZIP/market data                              |
-| 🧠 Cascade Agent Infra        | ✅ Core       | Modular task-chaining via instruction pipelines                             |
-| 📊 ZIP-Level Visuals (Charts) | ✅ Live       | Matplotlib-based sentiment trend and keyword visuals                        |
-| 📡 Street-Level Sentiment     | 🔜 MVP        | TikTok, Reddit, Twitter, YouTube, Yelp scraping for hyperlocal data         |
-| 🧬 Persona Fit Engine         | 🔜 Alpha      | Match people to neighborhoods based on lifestyle and values                 |
-| 🗺️ Interactive Map Overlays  | 🔜 Dev        | Heatmaps for sentiment, safety, events, economic indicators                 |
+✅ Live / Partially Implemented
+| **Feature**                | **Status**       | **Notes**                                                        |
+|----------------------------|------------------|------------------------------------------------------------------|
+| 🧠 AI Chat Interface        | ✅ Live           | GPT-based responses for property/sentiment queries               |
+| 📈 Sentiment Trend Engine  | ✅ Live           | ZIP-level reputation charts, keyword trends                      |
+| 🗂️ Airtable Sync + Log     | ✅ Live           | Logs history, uploads scores, pushes visuals                     |
+| 📊 GPT Summaries (Basic)   | ✅ MVP Complete   | Explains ZIP data in human-readable form                         |
+| ⚙️ FastAPI Backend         | ✅ Active         | Modular API endpoints ready for expansion                        |
+| 🤖 Cascade Agent Infra     | ✅ Core Setup     | Modular agent logic works via instruction pipelines              |
+| 🧮 ZIP-Level Visuals       | ✅ Functional     | Created with Matplotlib for early-stage visual output            |
+
+
+🛠️ In Progress / Planned (High Priority)
+| **Feature**                    | **Target Stage** | **Description**                                                      |
+|--------------------------------|------------------|----------------------------------------------------------------------|
+| 📡 Street-Level Sentiment      | 🔜 MVP            | Pulls TikTok, YouTube, Reddit, Yelp, Twitter via Manus agents       |
+| 🧬 Persona Fit Engine          | 🔜 Alpha          | Matches people to places based on lifestyle, behavior, and values   |
+| 🗺️ Interactive Map Overlay     | 🔜 Dev            | Mapbox/Three.js/D3.js overlays: sentiment, safety, buzz, trends     |
+| 🧠 SERO Bot Routing Layer      | 🔜 Dev            | Chains agents: query → enrichment → analysis → summary              |
+| 🗣️ Voice-to-GPT Interface      | 🔜 Beta           | Whisper speech → GPT → voiced + visual response                     |
+| 🎛️ Streamlit Dashboard         | ⏸ Paused         | Migrating to advanced React-based UI                                |
+| 🧾 CSV/PDF Export Engine       | 🔜 MVP            | Download AI-generated reports by ZIP, market, or persona            |
+| 📦 Composite Score Generator   | 🔜 Dev            | Combines market + reputation + trend + economic scores              |
+| 🔍 Neighborhood Discovery Tool | 🔜 Dev            | Smart search: vibe, safety, trend, event heat                       |
+| 🧭 Event Buzz Tracking         | 🔜 Dev            | Local event detection and cultural calendar syncing                 |
+| 🔐 Safety + Ethics Layer       | 🔜 Planning       | Prevents real-time exposure, supports verified local feedback       |
+
+
+🧪 Experimental / Future Concepts
+| **Feature**                    | **Target Stage** | **Description**                                                      |
+|--------------------------------|------------------|----------------------------------------------------------------------|
+| 📡 Street-Level Sentiment      | 🔜 MVP            | Pulls TikTok, YouTube, Reddit, Yelp, Twitter via Manus agents       |
+| 🧬 Persona Fit Engine          | 🔜 Alpha          | Matches people to places based on lifestyle, behavior, and values   |
+| 🗺️ Interactive Map Overlay     | 🔜 Dev            | Mapbox/Three.js/D3.js overlays: sentiment, safety, buzz, trends     |
+| 🧠 SERO Bot Routing Layer      | 🔜 Dev            | Chains agents: query → enrichment → analysis → summary              |
+| 🗣️ Voice-to-GPT Interface      | 🔜 Beta           | Whisper speech → GPT → voiced + visual response                     |
+| 🎛️ Streamlit Dashboard         | ⏸ Paused         | Migrating to advanced React-based UI                                |
+| 🧾 CSV/PDF Export Engine       | 🔜 MVP            | Download AI-generated reports by ZIP, market, or persona            |
+| 📦 Composite Score Generator   | 🔜 Dev            | Combines market + reputation + trend + economic scores              |
+| 🔍 Neighborhood Discovery Tool | 🔜 Dev            | Smart search: vibe, safety, trend, event heat                       |
+| 🧭 Event Buzz Tracking         | 🔜 Dev            | Local event detection and cultural calendar syncing                 |
+| 🔐 Safety + Ethics Layer       | 🔜 Planning       | Prevents real-time exposure, supports verified local feedback       |
+
 
 ---
 
